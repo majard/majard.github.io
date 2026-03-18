@@ -159,6 +159,7 @@
 
     /* ── HERO ── */
     #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 0; }
+    @media (max-width: 680px) { #hero { padding-top: 120px; } }
     .geo-circle { position: absolute; width: 580px; height: 580px; border-radius: 50%; border: 75px solid var(--red-dark); opacity: 0.09; top: -180px; right: -180px; pointer-events: none; }
     .geo-tri-shape { position: absolute; width: 0; height: 0; border-left: 160px solid transparent; border-right: 160px solid transparent; border-bottom: 280px solid var(--green); opacity: 0.05; bottom: 60px; left: -70px; pointer-events: none; }
     .geo-bar { position: absolute; width: 3px; height: 100vh; background: linear-gradient(to bottom, transparent, var(--red-dark), transparent); opacity: 0.28; top: 0; right: 110px; pointer-events: none; }
@@ -656,7 +657,7 @@
           <div class="contact-grid">
             <div class="contact-item">
               <span class="contact-label">◆ EMAIL</span>
-              <a href="mailto:marlonj.cristo@gmail.com" class="contact-val">marlonj.cristo@gmail.com</a>
+              <a href="/cdn-cgi/l/email-protection#04696576686b6a6e2a67766d77706b446369656d682a676b69" class="contact-val"><span class="__cf_email__" data-cfemail="422f23302e2d2c286c21302b31362d02252f232b2e6c212d2f">[email&#160;protected]</span></a>
             </div>
             <div class="contact-item">
               <span class="contact-label" data-i18n="contact_loc_label">◆ LOCATION</span>
@@ -671,7 +672,7 @@
               <a href="https://linkedin.com/in/marlon-jardim" target="_blank" class="contact-val">linkedin.com/in/marlon-jardim</a>
             </div>
           </div>
-          <a href="mailto:marlonj.cristo@gmail.com" class="dangerous-box">
+          <a href="/cdn-cgi/l/email-protection#4e232f3c22212024602d3c273d3a210e29232f2722602d2123" class="dangerous-box">
             <div class="sword-icon">🗡️</div>
             <div class="dangerous-text">
               <span data-i18n="cta_main">IT'S DANGEROUS TO GO ALONE — HIRE ME.</span>
@@ -695,7 +696,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ── I18N ── */
   const S = {
     en: {
@@ -849,7 +850,7 @@
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             el.style.transition = 'transform 1.1s cubic-bezier(0.4, 0, 0.2, 1)';
-            el.style.transform = `scaleX(${parseFloat(el.dataset.w) || 0.8})`;
+                       el.style.transform = `scaleX(${parseFloat(el.dataset.w) || 0.8})`;
           });
         });
       } else {
@@ -858,8 +859,7 @@
       }
     });
   }, { threshold: 0.3 });
-  fills.forEach(f => barObs.observe(f));
-
+  document.querySelectorAll('.skill-bar-fill').forEach(f => barObs.observe(f));
   </script>
 </body>
 </html>
