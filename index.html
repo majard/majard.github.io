@@ -657,7 +657,7 @@
           <div class="contact-grid">
             <div class="contact-item">
               <span class="contact-label">◆ EMAIL</span>
-              <a href="/cdn-cgi/l/email-protection#04696576686b6a6e2a67766d77706b446369656d682a676b69" class="contact-val"><span class="__cf_email__" data-cfemail="422f23302e2d2c286c21302b31362d02252f232b2e6c212d2f">[email&#160;protected]</span></a>
+              <a href="#" class="contact-val" id="email-link">marlonj.cristo&#64;gmail.com</a>
             </div>
             <div class="contact-item">
               <span class="contact-label" data-i18n="contact_loc_label">◆ LOCATION</span>
@@ -672,7 +672,7 @@
               <a href="https://linkedin.com/in/marlon-jardim" target="_blank" class="contact-val">linkedin.com/in/marlon-jardim</a>
             </div>
           </div>
-          <a href="/cdn-cgi/l/email-protection#4e232f3c22212024602d3c273d3a210e29232f2722602d2123" class="dangerous-box">
+          <a href="#" class="dangerous-box" id="email-cta">
             <div class="sword-icon">🗡️</div>
             <div class="dangerous-text">
               <span data-i18n="cta_main">IT'S DANGEROUS TO GO ALONE — HIRE ME.</span>
@@ -696,7 +696,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
   /* ── I18N ── */
   const S = {
     en: {
@@ -860,6 +860,15 @@
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('.skill-bar-fill').forEach(f => barObs.observe(f));
+  /* email built at runtime to avoid Cloudflare interception */
+  (function() {
+    const u = 'marlonj.cristo', d = 'gmail.com', m = 'mailto:' + u + '@' + d;
+    const el = document.getElementById('email-link');
+    const cta = document.getElementById('email-cta');
+    if (el)  { el.href = m; el.textContent = u + '@' + d; }
+    if (cta) { cta.href = m; }
+  })();
+
   </script>
 </body>
 </html>
