@@ -214,7 +214,7 @@
     .lang-tag.fluent  { border-color: var(--gold-dim); color: var(--gold); }
 
     /* ── QUESTS ── */
-    .quest-list { display: flex; flex-direction: column; gap: 1rem; }
+    .quest-list { display: flex; flex-direction: column; gap: 2.5rem; }
     .quest { background: var(--panel); border: 1px solid var(--border2); padding: 1.5rem; position: relative; transition: border-color 0.2s, transform 0.2s; }
     .quest:hover { border-color: var(--gold-dim); transform: translateX(5px); }
     .quest::before { content: '▶'; position: absolute; left: -1.3rem; top: 50%; transform: translateY(-50%); font-size: 0.55rem; color: var(--gold); opacity: 0; transition: opacity 0.15s; }
@@ -488,12 +488,12 @@
         <div class="section-label" data-i18n="nav_quests">QUEST LOG</div>
         <div class="divider-line"></div>
       </div>
-      <div class="chest-wrap" data-chest>
-        <div class="chest-lid"></div>
-        <div class="chest-glint"></div>
-        <div class="quest-list">
+      <div class="quest-list">
 
-          <div class="quest">
+          <div class="chest-wrap" data-chest>
+            <div class="chest-lid"></div>
+            <div class="chest-glint"></div>
+            <div class="quest">
             <div class="quest-top">
               <div class="quest-icon sword">⚔</div>
               <span class="quest-name">MONOPOP</span>
@@ -518,8 +518,46 @@
               <span class="tag">REANIMATED V4</span>
             </div>
           </div>
+          </div>
 
-          <div class="quest">
+          <div class="chest-wrap" data-chest>
+            <div class="chest-lid"></div>
+            <div class="chest-glint"></div>
+            <div class="quest">
+            <div class="quest-top">
+              <div class="quest-icon star">🔍</div>
+              <span class="quest-name">MONOPOP INTEL</span>
+              <span class="quest-badge badge-active">▶ LIVE</span>
+              <a href="https://github.com/majard/monopop-intel" target="_blank" class="quest-link">◆ SOURCE</a>
+              <a href="https://monopop-intel.vercel.app" target="_blank" class="quest-link">◆ DEMO</a>
+            </div>
+            <p class="quest-desc" data-i18n="intel_desc">Market price intelligence for Rio de Janeiro supermarkets. Searches Prezunic and Zona Sul simultaneously, sorts by price, paginates results. Closes the loop with Monopop: know your stock, know the market, buy smarter.</p>
+            <ul class="rupee-bullets">
+              <li data-i18n="intel_b1"><strong>Parallel async scraping</strong> — httpx + asyncio fetches multiple stores simultaneously via publicly available VTEX APIs. ~50% latency reduction vs sequential.</li>
+              <li data-i18n="intel_b2"><strong>Next.js 15 Server Components</strong> — data fetching on the server, browser receives rendered HTML. Zero client-side JS for search logic, zero waterfall.</li>
+              <li data-i18n="intel_b3"><strong>Deterministic multi-store sort</strong> — tiebreaker (price, product_id, store) ensures stable pagination across independent store results.</li>
+            </ul>
+            <div class="quest-stats">
+              <span class="quest-stat">2 STORES LIVE</span>
+              <span class="quest-stat">BUILT IN ~5H</span>
+              <span class="quest-stat">ZERO AUTH</span>
+            </div>
+            <div class="quest-tags">
+              <span class="tag">NEXT.JS 15</span>
+              <span class="tag">SERVER COMPONENTS</span>
+              <span class="tag">FASTAPI</span>
+              <span class="tag">PYTHON</span>
+              <span class="tag">ASYNCIO</span>
+              <span class="tag">VERCEL</span>
+              <span class="tag">RAILWAY</span>
+            </div>
+          </div>
+          </div>
+
+          <div class="chest-wrap" data-chest>
+            <div class="chest-lid"></div>
+            <div class="chest-glint"></div>
+            <div class="quest">
             <div class="quest-top">
               <div class="quest-icon star">★</div>
               <span class="quest-name">PARQUET DIGITAL — MPRJ</span>
@@ -537,8 +575,12 @@
               <span class="tag">CI/CD</span><span class="tag">STORYBOOK</span><span class="tag">OPENSHIFT</span><span class="tag">FIGMA</span>
             </div>
           </div>
+          </div>
 
-          <div class="quest">
+          <div class="chest-wrap" data-chest>
+            <div class="chest-lid"></div>
+            <div class="chest-glint"></div>
+            <div class="quest">
             <div class="quest-top">
               <div class="quest-icon rupee">◆</div>
               <span class="quest-name" data-i18n="freelance_title">FREELANCE</span>
@@ -550,9 +592,9 @@
               <span class="tag">POSTGRESQL</span><span class="tag">NODE.JS</span>
             </div>
           </div>
+          </div>
 
         </div>
-      </div>
     </div>
   </section>
 
@@ -715,6 +757,10 @@
       monopop_b3:'<strong>Spec-driven development</strong> \u2014 complex features fully specced before implementation. AI proposes, human decides, human owns the architecture.',
       parquet_desc:'Internal platform used by prosecutors across Rio de Janeiro state. SPA awarded <strong>2nd place \u2014 2021 CNMP National Innovation Award</strong>. Led architecture, CI/CD, and a design system that scaled across teams.',
       freelance_title:'FREELANCE', freelance_desc:'Websites and web applications for clients across the years. Full ownership from spec to delivery \u2014 backend, frontend, infrastructure.',
+      intel_desc:'Market price intelligence for Rio de Janeiro supermarkets. Searches Prezunic and Zona Sul simultaneously, sorts by price, paginates results. Closes the loop with Monopop: know your stock, know the market, buy smarter.',
+      intel_b1:'<strong>Parallel async scraping</strong> \u2014 httpx + asyncio fetches multiple stores simultaneously via publicly available VTEX APIs. ~50% latency reduction vs sequential.',
+      intel_b2:'<strong>Next.js 15 Server Components</strong> \u2014 data fetching on the server, browser receives rendered HTML. Zero client-side JS for search logic, zero waterfall.',
+      intel_b3:'<strong>Deterministic multi-store sort</strong> \u2014 tiebreaker (price, product_id, store) ensures stable pagination across independent store results.',
       skill_product:'PRODUCT THINKING',
       contact_loc_label:'\u25c6 LOCATION', contact_loc_val:'Rio de Janeiro, Brazil',
       cta_main:"IT\u2019S DANGEROUS TO GO ALONE \u2014 HIRE ME.", cta_sub:'Available for senior frontend, fullstack, and product-minded roles.',
@@ -736,6 +782,10 @@
       monopop_b3:'<strong>Desenvolvimento spec-driven</strong> \u2014 IA propõe, humano decide, humano é dono da arquitetura.',
       parquet_desc:'Plataforma interna usada por promotores em todo o Rio. Premiada em <strong>2º lugar \u2014 Prêmio CNMP de Inovação 2021</strong>. Liderou arquitetura, CI/CD e sistema de design.',
       freelance_title:'FREELANCE', freelance_desc:'Sites e aplicações web para clientes. Responsabilidade total do spec à entrega \u2014 backend, frontend, infraestrutura.',
+      intel_desc:'Inteligência de preços de supermercados no Rio de Janeiro. Busca Prezunic e Zona Sul simultaneamente, ordena por preço, pagina resultados. Fecha o loop com o Monopop: sabe o que tem, sabe o que custa, compra melhor.',
+      intel_b1:'<strong>Scraping paralelo e assíncrono</strong> — httpx + asyncio busca múltiplas lojas simultaneamente via APIs públicas VTEX. ~50% de redução de latência vs sequencial.',
+      intel_b2:'<strong>Next.js 15 Server Components</strong> — dados buscados no servidor, browser recebe HTML pronto. Zero JS client-side para lógica de busca, zero waterfall.',
+      intel_b3:'<strong>Sort multi-loja determinístico</strong> — tiebreaker (preço, product_id, loja) garante paginação estável entre resultados de lojas independentes.',
       skill_product:'VISÃO DE PRODUTO',
       contact_loc_label:'\u25c6 LOCALIZAÇÃO', contact_loc_val:'Rio de Janeiro, Brasil',
       cta_main:'É PERIGOSO IR SOZINHO \u2014 ME CONTRATE.', cta_sub:'Disponível para vagas sênior de frontend, fullstack e produto.',
