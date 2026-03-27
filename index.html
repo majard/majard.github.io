@@ -42,8 +42,6 @@
       background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
       pointer-events: none; z-index: 9999;
     }
-
-    /* ── NAV ── */
     nav {
       position: fixed; top:0; left:0; right:0; z-index:200;
       background: rgba(10,10,10,0.94);
@@ -62,12 +60,8 @@
     .lang-btn { font-family: var(--pixel); font-size: 0.32rem; padding: 0.3em 0.5em; background: transparent; border: 1px solid var(--border2); color: var(--text-dim); cursor: pointer; transition: all 0.15s; letter-spacing: 0.08em; }
     .lang-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
     .lang-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(232,184,75,0.08); }
-
-    /* ── LAYOUT ── */
     .container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
     section { padding: 5rem 0; }
-
-    /* ── PANEL ── */
     .panel {
       background:
         linear-gradient(rgba(255,255,255,0.013) 1px, transparent 1px),
@@ -78,15 +72,11 @@
       position: relative;
       padding: 2rem;
     }
-    .panel::before, .panel::after, .panel .gem-tr, .panel .gem-bl {
-      content: ''; position: absolute; width: 8px; height: 8px;
-    }
+    .panel::before, .panel::after, .panel .gem-tr, .panel .gem-bl { content: ''; position: absolute; width: 8px; height: 8px; }
     .panel::before  { top:-1px;    left:-1px;   background: var(--gold); }
     .panel::after   { bottom:-1px; right:-1px;  background: var(--gold); }
     .panel .gem-tr  { top:-1px;    right:-1px;  background: var(--green-bright); }
     .panel .gem-bl  { bottom:-1px; left:-1px;   background: var(--green-bright); }
-
-    /* ── TRIFORCE ── */
     .triforce-divider { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2rem; }
     .triforce { position: relative; width: 30px; height: 26px; flex-shrink: 0; }
     .tri-bl, .tri-br, .tri-top { position: absolute; width: 0; height: 0; }
@@ -95,8 +85,6 @@
     .tri-top { border-left:8px solid transparent; border-right:8px solid transparent; border-bottom:13px solid var(--gold); top:0; left:50%; transform:translateX(-50%); }
     .section-label { font-family: var(--pixel); font-size: 0.48rem; color: var(--text-mid); letter-spacing: 0.2em; }
     .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--gold-dim), transparent); }
-
-    /* ── CHEST REVEAL ── */
     .chest-wrap { position: relative; overflow: hidden; }
     .chest-lid {
       position: absolute; inset: 0; z-index: 10;
@@ -106,9 +94,6 @@
       pointer-events: none;
       will-change: transform;
     }
-    .chest-wrap.open .chest-lid { transform: translateY(-102%); }
-    .chest-wrap.open .chest-glint { opacity: 1; }
-    /* horizontal band */
     .chest-lid::before {
       content: '';
       position: absolute; left:0; right:0;
@@ -118,7 +103,6 @@
       border-top: 2px solid var(--gold-dim);
       border-bottom: 2px solid var(--gold-dim);
     }
-    /* lock */
     .chest-lid::after {
       content: '';
       position: absolute; left: 50%; top: 50%;
@@ -127,7 +111,6 @@
       background: var(--gold);
       clip-path: polygon(20% 0%, 80% 0%, 100% 40%, 100% 100%, 0% 100%, 0% 40%);
     }
-    /* glint */
     .chest-glint {
       position: absolute; inset: 0; z-index: 9;
       background: linear-gradient(135deg, rgba(232,184,75,0.15), transparent 55%);
@@ -135,35 +118,19 @@
       pointer-events: none;
       transition: opacity 0.3s ease;
     }
-    .chest-wrap.glinting .chest-glint { opacity: 1; }
-
-    /* ── PALM TREE (SVG, fixed) ── */
-    .palm-fixed {
-      position: fixed;
-      bottom: 180px;
-      right: 30px;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0.65;
-    }
-    .palm-svg-leaves {
-      transform-origin: 50% 100%;
-      animation: palmSway 3s ease-in-out infinite;
-    }
+    .palm-fixed { position: fixed; bottom: 180px; right: 30px; z-index: 1; pointer-events: none; opacity: 0.65; }
+    .palm-svg-leaves { transform-origin: 50% 100%; animation: palmSway 3s ease-in-out infinite; }
     @keyframes palmSway {
       0%   { transform: rotate(0deg) skewX(0deg); }
       25%  { transform: rotate(2deg) skewX(1deg); }
       75%  { transform: rotate(-2deg) skewX(-1deg); }
       100% { transform: rotate(0deg) skewX(0deg); }
     }
-
-    /* ── HERO ── */
     #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 0; }
     @media (max-width: 680px) { #hero { padding-top: 120px; } }
     .geo-circle { position: absolute; width: 580px; height: 580px; border-radius: 50%; border: 75px solid var(--red-dark); opacity: 0.09; top: -180px; right: -180px; pointer-events: none; }
     .geo-tri-shape { position: absolute; width: 0; height: 0; border-left: 160px solid transparent; border-right: 160px solid transparent; border-bottom: 280px solid var(--green); opacity: 0.05; bottom: 60px; left: -70px; pointer-events: none; }
     .geo-bar { position: absolute; width: 3px; height: 100vh; background: linear-gradient(to bottom, transparent, var(--red-dark), transparent); opacity: 0.28; top: 0; right: 110px; pointer-events: none; }
-
     .hero-inner { position: relative; z-index: 1; }
     .hero-tag { font-family: var(--pixel); font-size: 0.42rem; color: var(--green-bright); letter-spacing: 0.28em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.5s ease forwards 0.1s; }
     .hero-tag::before { content: '◆ '; color: var(--gold); }
@@ -179,7 +146,6 @@
     .danger-cta::before { content: ''; display: inline-block; width: 18px; height: 18px; background: var(--gold-dim); clip-path: polygon(50% 0%, 0% 100%, 100% 100%); flex-shrink: 0; transition: background 0.15s; }
     .danger-cta:hover::before { background: var(--gold); }
     .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-
     .btn { font-family: var(--pixel); font-size: 0.4rem; letter-spacing: 0.08em; padding: 0.9rem 1.5rem; text-decoration: none; border: 2px solid; display: inline-block; transition: all 0.15s; position: relative; cursor: pointer; }
     .btn::after { content: ''; position: absolute; bottom: -4px; right: -4px; width: 100%; height: 100%; border: 2px solid; transition: all 0.15s; z-index: -1; }
     .btn-primary { background: var(--red); border-color: var(--red); color: var(--text); }
@@ -191,8 +157,6 @@
     .btn-green { background: transparent; border-color: var(--green); color: var(--green-bright); }
     .btn-green::after { border-color: var(--green); }
     .btn-green:hover { background: var(--green); color: var(--text); }
-
-    /* HUD */
     .hud { position: absolute; top: 2rem; right: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; opacity: 0; animation: fadeIn 0.5s ease forwards 1.2s; }
     .hud-level { font-family: var(--pixel); font-size: 0.38rem; color: var(--gold); letter-spacing: 0.15em; }
     .hearts { display: flex; gap: 4px; }
@@ -202,8 +166,6 @@
     .rupees-hud { display: flex; align-items: center; gap: 0.5rem; }
     .rupee-icon-hud { width: 11px; height: 16px; background: var(--green-bright); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
     .rupee-count { font-family: var(--pixel); font-size: 0.38rem; color: var(--green-bright); }
-
-    /* ── ABOUT ── */
     #about .panel p { font-size: 1rem; color: var(--text); margin-bottom: 1rem; max-width: 700px; }
     #about .panel p:last-of-type { margin-bottom: 0; }
     .highlight { color: var(--gold); font-weight: 700; }
@@ -212,8 +174,6 @@
     .lang-tag { font-family: var(--pixel); font-size: 0.33rem; padding: 0.3em 0.7em; border: 1px solid var(--border2); color: var(--text-mid); letter-spacing: 0.1em; }
     .lang-tag.native { border-color: var(--green); color: var(--green-bright); }
     .lang-tag.fluent  { border-color: var(--gold-dim); color: var(--gold); }
-
-    /* ── QUESTS ── */
     .quest-list { display: flex; flex-direction: column; gap: 2.5rem; }
     .quest { background: var(--panel); border: 1px solid var(--border2); padding: 1.5rem; position: relative; transition: border-color 0.2s, transform 0.2s; }
     .quest:hover { border-color: var(--gold-dim); transform: translateX(5px); }
@@ -231,9 +191,10 @@
     .badge-gov     { border-color: var(--red); color: #d07070; }
     .quest-link { font-family: var(--pixel); font-size: 0.32rem; padding: 0.25em 0.7em; border: 1px solid var(--green); color: var(--green-bright); text-decoration: none; transition: background 0.15s; flex-shrink: 0; }
     .quest-link:hover { background: var(--green); color: var(--text); }
+    .quest-link.apk { border-color: var(--gold-dim); color: var(--gold); }
+    .quest-link.apk:hover { background: var(--gold-dim); color: var(--bg); }
     .quest-desc { font-size: 0.92rem; color: var(--text); margin-bottom: 1rem; line-height: 1.75; }
     .quest-desc strong { color: var(--gold); }
-
     .rupee-bullets { list-style: none; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.7rem; }
     .rupee-bullets li { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.9rem; color: var(--text); line-height: 1.65; }
     .rupee-bullets li::before {
@@ -244,43 +205,34 @@
       margin-top: 4px;
     }
     .rupee-bullets li strong { color: var(--gold-bright); }
-
     .quest-stats { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
     .quest-stat { font-family: var(--pixel); font-size: 0.32rem; padding: 0.25em 0.6em; background: var(--red-dark); color: var(--gold-bright); letter-spacing: 0.06em; }
     .quest-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
     .tag { font-family: var(--pixel); font-size: 0.32rem; padding: 0.25em 0.6em; background: var(--border); color: var(--text-dim); letter-spacing: 0.08em; }
-
-    .quest-media { margin: 1rem 0; border: 1px solid var(--border2); overflow: hidden; max-width: 300px; }
+    /* Side-by-side layout for quests with media */
+    .quest-layout { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .quest-body { flex: 1; min-width: 0; }
+    .quest-media-right { flex: 0 0 230px; }
+    .quest-media { border: 1px solid var(--border2); overflow: hidden; }
     .quest-media img { display: block; width: 100%; }
     .quest-media-placeholder { height: 160px; background: var(--border); display: flex; align-items: center; justify-content: center; font-family: var(--pixel); font-size: 0.36rem; color: var(--text-dim); letter-spacing: 0.1em; }
-
-    /* ── SKILLS ── */
+    @media (max-width: 700px) {
+      .quest-layout { flex-direction: column; }
+      .quest-media-right { flex: unset; width: 100%; max-width: 300px; }
+    }
     .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3rem; }
     .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
     .skill-name { font-family: var(--pixel); font-size: 0.36rem; color: var(--text-mid); letter-spacing: 0.1em; }
     .skill-stars { display: flex; gap: 3px; }
     .star { width: 13px; height: 13px; background: var(--gold); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
     .star.dim { background: var(--border2); }
-
-    /* THE skill bar fix */
-    .skill-bar {
-      height: 12px;
-      background: var(--border);
-      border: 1px solid var(--border2);
-      position: relative;
-      overflow: hidden;
-    }
+    .skill-bar { height: 12px; background: var(--border); border: 1px solid var(--border2); position: relative; overflow: hidden; }
     .skill-bar-fill {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 100%;
+      position: absolute; left: 0; top: 0; bottom: 0; width: 100%;
       background: linear-gradient(90deg, var(--green), var(--green-bright));
       transform: scaleX(0);
       transform-origin: left center;
-      /* transition applied via JS after first paint */
     }
-
-    /* ── CONTACT ── */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
     .contact-item { display: flex; flex-direction: column; gap: 0.3rem; }
     .contact-label { font-family: var(--pixel); font-size: 0.36rem; color: var(--text-dim); letter-spacing: 0.15em; }
@@ -292,21 +244,15 @@
     .sword-icon { font-size: 1.6rem; flex-shrink: 0; animation: swordPulse 2.5s ease-in-out infinite; }
     .dangerous-text { font-family: var(--pixel); font-size: 0.42rem; color: var(--gold-bright); letter-spacing: 0.08em; line-height: 1.8; }
     .dangerous-text span { color: var(--text-dim); font-size: 0.33rem; display: block; margin-top: 0.4rem; }
-
-    /* ── FOOTER ── */
     footer { padding: 2.5rem 0; border-top: 1px solid var(--border2); text-align: center; }
     .made-in-rio { font-family: var(--pixel); font-size: 0.42rem; color: var(--text-mid); letter-spacing: 0.2em; margin-bottom: 0.8rem; }
     .made-in-rio span { color: var(--green-bright); }
     .footer-text { font-family: var(--pixel); font-size: 0.33rem; color: var(--text-dim); letter-spacing: 0.12em; line-height: 2; }
     .footer-text .gc { color: var(--green-bright); }
     .footer-text .gd { color: var(--gold-dim); }
-
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
     @keyframes swordPulse { 0%,100% { transform: rotate(-8deg) scale(1); } 50% { transform: rotate(8deg) scale(1.08); } }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
       .hud { display: none; }
       .palm-fixed { display: none; }
@@ -319,18 +265,13 @@
 </head>
 <body>
 
-  <!-- ── PALM TREE (SVG, fixed bottom-right) ── -->
   <div class="palm-fixed">
     <svg width="150" height="200" viewBox="0 0 150 200" xmlns="http://www.w3.org/2000/svg">
-
-      <!-- island: wide, flat bottom, no gap at top -->
       <polygon points="0,175 18,165 42,159 75,157 108,159 132,165 150,175 150,200 0,200" fill="#2a5c35"/>
       <polygon points="4,173 20,164 44,158 75,156 106,158 130,164 146,173 146,196 4,196" fill="#3a7a48"/>
       <polygon points="8,171 24,162 46,157 75,155 104,157 126,162 142,171 142,192 8,192" fill="#4a9a58"/>
       <polygon points="5,172 22,163 46,158 75,156 104,158 128,163 145,172 145,183 5,183" fill="#d4a85a"/>
       <polygon points="8,171 25,163 48,158 75,156 102,158 125,163 142,171 142,180 8,180" fill="#c8963e"/>
-
-      <!-- trunk -->
       <path d="M73,92 Q70,110 71,128 Q68,148 70,168" stroke="#7a5c3a" stroke-width="9" fill="none" stroke-linecap="round"/>
       <path d="M74,92 Q71,110 72,128 Q69,148 71,168" stroke="#5c3e22" stroke-width="3" fill="none" stroke-linecap="round"/>
       <line x1="68" y1="106" x2="78" y2="104" stroke="#5c3e22" stroke-width="1.5"/>
@@ -338,53 +279,30 @@
       <line x1="68" y1="134" x2="78" y2="132" stroke="#5c3e22" stroke-width="1.5"/>
       <line x1="67" y1="148" x2="77" y2="146" stroke="#5c3e22" stroke-width="1.5"/>
       <line x1="68" y1="161" x2="78" y2="159" stroke="#5c3e22" stroke-width="1.5"/>
-
-      <!-- coconuts BEHIND leaves -->
-      <circle cx="66" cy="113" r="6"   fill="#6b3f1f"/>
-      <circle cx="75" cy="111" r="6"   fill="#7a4f2a"/>
+      <circle cx="66" cy="113" r="6" fill="#6b3f1f"/>
+      <circle cx="75" cy="111" r="6" fill="#7a4f2a"/>
       <circle cx="82" cy="115" r="5.5" fill="#6b3f1f"/>
       <circle cx="66" cy="113" r="2.5" fill="#3d1f08" opacity="0.6"/>
       <circle cx="75" cy="111" r="2.5" fill="#3d1f08" opacity="0.6"/>
-      <circle cx="82" cy="115" r="2"   fill="#3d1f08" opacity="0.6"/>
-
-      <!-- LEAVES: on top of coconuts -->
+      <circle cx="82" cy="115" r="2" fill="#3d1f08" opacity="0.6"/>
       <g class="palm-svg-leaves">
-        <!-- far-left droop: -130deg -->
         <ellipse cx="73" cy="88" rx="6" ry="34" fill="#2d8a50" transform="rotate(-130 73 88)"/>
         <ellipse cx="73" cy="88" rx="3" ry="30" fill="#3dbf6e" transform="rotate(-130 73 88)"/>
-
-        <!-- left droop: -110deg -->
         <ellipse cx="73" cy="88" rx="6" ry="36" fill="#2d8a50" transform="rotate(-110 73 88)"/>
         <ellipse cx="73" cy="88" rx="3" ry="32" fill="#3dbf6e" transform="rotate(-110 73 88)"/>
-
-        <!-- left-up: -55deg -->
         <ellipse cx="73" cy="88" rx="6" ry="36" fill="#2d8a50" transform="rotate(-55 73 88)"/>
         <ellipse cx="73" cy="88" rx="3" ry="32" fill="#a8d870" transform="rotate(-55 73 88)"/>
-
-        <!-- slight left-up: -35deg -->
         <ellipse cx="73" cy="88" rx="5" ry="30" fill="#3dbf6e" transform="rotate(-35 73 88)"/>
-
-        <!-- slight right-up: 30deg -->
         <ellipse cx="73" cy="88" rx="5" ry="30" fill="#3dbf6e" transform="rotate(30 73 88)"/>
-
-        <!-- right-up: 50deg -->
         <ellipse cx="73" cy="88" rx="6" ry="36" fill="#2d8a50" transform="rotate(50 73 88)"/>
         <ellipse cx="73" cy="88" rx="3" ry="32" fill="#a8d870" transform="rotate(50 73 88)"/>
-
-        <!-- right droop: 105deg -->
         <ellipse cx="73" cy="88" rx="6" ry="36" fill="#2d8a50" transform="rotate(105 73 88)"/>
         <ellipse cx="73" cy="88" rx="3" ry="32" fill="#3dbf6e" transform="rotate(105 73 88)"/>
-
-        <!-- far-right droop: 125deg -->
         <ellipse cx="73" cy="88" rx="6" ry="34" fill="#2d8a50" transform="rotate(125 73 88)"/>
         <ellipse cx="73" cy="88" rx="3" ry="30" fill="#3dbf6e" transform="rotate(125 73 88)"/>
-
-        <!-- back accent left: -75deg -->
         <ellipse cx="73" cy="88" rx="3" ry="26" fill="#4adf7e" transform="rotate(-75 73 88)" opacity="0.7"/>
-        <!-- back accent right: 70deg -->
         <ellipse cx="73" cy="88" rx="3" ry="26" fill="#4adf7e" transform="rotate(70 73 88)" opacity="0.7"/>
       </g>
-
     </svg>
   </div>
 
@@ -407,7 +325,6 @@
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
   <section id="hero">
     <div class="geo-circle"></div>
     <div class="geo-tri-shape"></div>
@@ -451,7 +368,6 @@
     </div>
   </section>
 
-  <!-- ── ABOUT ── -->
   <section id="about">
     <div class="container">
       <div class="triforce-divider">
@@ -466,7 +382,7 @@
           <div class="gem-tr"></div><div class="gem-bl"></div>
           <p data-i18n="about_p1">Senior engineer with 9+ years building products end-to-end — from architecture to the moment someone actually uses it, and everything in between. I work across the full stack, but my actual job is deciding what matters, then building it.</p>
           <p data-i18n="about_p2">Led <span class="highlight">Parquet Digital</span> to a national innovation award — <span class="stat-inline">300% users</span> <span class="stat-inline">60% faster</span> <span class="stat-inline">30% less dev time</span>. Now building <span class="highlight">Monopop</span> — starts as inventory and shopping management, ends somewhere considerably more ambitious.</p>
-          <p data-i18n="about_p3">Six languages. CS at UFF, in progress. Still learning.</p>
+          <p data-i18n="about_p3">Six languages. CS at UFF, incomplete — four years, teaching assistant for Databases and Advanced Java. Plans to finish.</p>
           <div class="langs">
             <span class="lang-tag native">PT — NATIVE</span>
             <span class="lang-tag fluent">EN — FLUENT</span>
@@ -480,7 +396,6 @@
     </div>
   </section>
 
-  <!-- ── QUESTS ── -->
   <section id="quests">
     <div class="container">
       <div class="triforce-divider">
@@ -490,40 +405,50 @@
       </div>
       <div class="quest-list">
 
-          <div class="chest-wrap" data-chest>
-            <div class="chest-lid"></div>
-            <div class="chest-glint"></div>
-            <div class="quest">
+        <!-- MONOPOP -->
+        <div class="chest-wrap" data-chest>
+          <div class="chest-lid"></div>
+          <div class="chest-glint"></div>
+          <div class="quest">
             <div class="quest-top">
               <div class="quest-icon sword">⚔</div>
               <span class="quest-name">MONOPOP</span>
               <span class="quest-badge badge-active" data-i18n="badge_active">▶ ACTIVE</span>
-              <a href="https://github.com/majard/Listai" target="_blank" class="quest-link">◆ SOURCE</a>
+              <a href="https://github.com/majard/monopop" target="_blank" class="quest-link">◆ SOURCE</a>
+              <a href="https://github.com/majard/monopop/releases" target="_blank" class="quest-link apk">⬇ APK</a>
             </div>
-            <p class="quest-desc" data-i18n="monopop_desc">Offline-first Android app for inventory and shopping management — built from scratch, in production, daily use. The architecture is designed to grow: price history, store comparison, and collective purchasing intelligence are already in the roadmap.</p>
-            <ul class="rupee-bullets">
-              <li data-i18n="monopop_b1"><strong>Full product ownership</strong> — schema design, migration system, UI architecture, UX decisions, and roadmap. Real users, real feedback loop.</li>
-              <li data-i18n="monopop_b2"><strong>Performance engineering</strong> — cold start 3s → 1s; critical queries 1287ms → 5ms through profiling, indexing, and architectural decisions.</li>
-              <li data-i18n="monopop_b3"><strong>Spec-driven development</strong> — complex features fully specced before implementation. AI proposes, human decides, human owns the architecture.</li>
-            </ul>
-            <div class="quest-media">
-              <img src="docs/demo.gif" alt="Monopop in action" onerror="this.parentElement.innerHTML='<div class=quest-media-placeholder>[ DEMO GIF COMING SOON ]</div>'" />
-            </div>
-            <div class="quest-tags">
-              <span class="tag">REACT NATIVE</span>
-              <span class="tag">EXPO SDK 54</span>
-              <span class="tag">NEW ARCH / JSI</span>
-              <span class="tag">SQLITE</span>
-              <span class="tag">TYPESCRIPT</span>
-              <span class="tag">REANIMATED V4</span>
+            <div class="quest-layout">
+              <div class="quest-body">
+                <p class="quest-desc" data-i18n="monopop_desc">Offline-first Android app for inventory and shopping management — built for one specific person who uses it every day at work and at the supermarket. No backend, no account, no internet required. Data belongs to the user by architecture, not by policy. The name comes from <em>monopsônio popular</em> — the consumer, collectively, as the dominant buyer. This is the first layer of that idea made functional.</p>
+                <ul class="rupee-bullets">
+                  <li data-i18n="monopop_b1"><strong>Full product ownership</strong> — schema design (V1→V10 versioned migrations), UI architecture, UX driven by observed behavior. Real users, real feedback loop, real consequences when things break.</li>
+                  <li data-i18n="monopop_b2"><strong>Performance engineering, three separate wins</strong> — New Architecture/JSI eliminated the JSON bridge (cold start 3s → 1s; ~90% of total gains from this alone); WAL mode + explicit PRAGMAs eliminated lock overhead (repeat-visit load 900ms → 33ms); profiling identified a single query as bottleneck (1287ms → 5ms after indexes in V8 migration).</li>
+                  <li data-i18n="monopop_b3"><strong>Source of truth follows observation</strong> — during v1.7 development, caught a fundamental data model flaw: the app was storing a derived value (price per unit) as canonical. User typed R$14,00 and got R$14,0000000003 back. The rounding error was a symptom; the real fix was epistemics. Corrected before shipping.</li>
+                  <li data-i18n="monopop_b4"><strong>Spec-driven AI-assisted development</strong> — complex features fully specced before implementation. AI proposes, human decides, human reviews every diff, human owns the architecture. Faster iteration without surrendering design ownership.</li>
+                </ul>
+                <div class="quest-tags">
+                  <span class="tag">REACT NATIVE</span>
+                  <span class="tag">EXPO SDK 54</span>
+                  <span class="tag">NEW ARCH / JSI</span>
+                  <span class="tag">SQLITE</span>
+                  <span class="tag">TYPESCRIPT</span>
+                  <span class="tag">REANIMATED V4</span>
+                </div>
+              </div>
+              <div class="quest-media-right">
+                <div class="quest-media">
+                  <img src="docs/demo.gif" alt="Monopop in action" onerror="this.parentElement.innerHTML='<div class=quest-media-placeholder>[ DEMO GIF ]</div>'" />
+                </div>
+              </div>
             </div>
           </div>
-          </div>
+        </div>
 
-          <div class="chest-wrap" data-chest>
-            <div class="chest-lid"></div>
-            <div class="chest-glint"></div>
-            <div class="quest">
+        <!-- MONOPOP INTEL -->
+        <div class="chest-wrap" data-chest>
+          <div class="chest-lid"></div>
+          <div class="chest-glint"></div>
+          <div class="quest">
             <div class="quest-top">
               <div class="quest-icon star">🔍</div>
               <span class="quest-name">MONOPOP INTEL</span>
@@ -531,15 +456,15 @@
               <a href="https://github.com/majard/monopop-intel" target="_blank" class="quest-link">◆ SOURCE</a>
               <a href="https://monopop-intel.vercel.app" target="_blank" class="quest-link">◆ DEMO</a>
             </div>
-            <p class="quest-desc" data-i18n="intel_desc">Market price intelligence for Rio de Janeiro supermarkets. Searches Prezunic and Zona Sul simultaneously, sorts by price, paginates results. Closes the loop with Monopop: know your stock, know the market, buy smarter.</p>
+            <p class="quest-desc" data-i18n="intel_desc">End-to-end market price intelligence for Rio de Janeiro supermarkets: scraper → normalization → dual-layer storage → API → UI. Tracks 18,000+ product prices daily. Built and shipped in two weeks — two systems in production during an active financial crunch, both live, both with real users. Closes the loop with Monopop: know your stock, know the market, buy smarter.</p>
             <ul class="rupee-bullets">
-              <li data-i18n="intel_b1"><strong>Parallel async scraping</strong> — httpx + asyncio fetches multiple stores simultaneously via publicly available VTEX APIs. ~50% latency reduction vs sequential.</li>
-              <li data-i18n="intel_b2"><strong>Next.js 15 Server Components</strong> — data fetching on the server, browser receives rendered HTML. Zero client-side JS for search logic, zero waterfall.</li>
-              <li data-i18n="intel_b3"><strong>Deterministic multi-store sort</strong> — tiebreaker (price, product_id, store) ensures stable pagination across independent store results.</li>
+              <li data-i18n="intel_b1"><strong>Per-store concurrency control</strong> — asyncio.Semaphore scoped per store independently, not globally. A global semaphore lets one slow store (VTEX averages 5–6s per call, spikes to 20–30s) consume all slots and starve the others. Per-store isolation contains the damage. Result: full scrape cycle 3 hours → 6 minutes (30×).</li>
+              <li data-i18n="intel_b2"><strong>Dual-layer storage</strong> — reactive SQLite cache (4h TTL, low-latency search) + PostgreSQL time-series (90-day price history). Two different problems — search latency and price trend data — each solved with the right tool. One database wouldn't handle both correctly.</li>
+              <li data-i18n="intel_b3"><strong>Self-healing retry pipeline</strong> — GitHub Actions cron writes scrape results to a log table. The hourly retry job queries for failures in the last 24h with no subsequent success and re-enqueues only those (term, store) pairs. No dead-letter queue, no fixed retry counter. Idempotent writes throughout.</li>
             </ul>
             <div class="quest-stats">
-              <span class="quest-stat">2 STORES LIVE</span>
-              <span class="quest-stat">BUILT IN ~5H</span>
+              <span class="quest-stat">3 STORES LIVE</span>
+              <span class="quest-stat">18,000+ PRICES TRACKED</span>
               <span class="quest-stat">ZERO AUTH</span>
             </div>
             <div class="quest-tags">
@@ -548,16 +473,18 @@
               <span class="tag">FASTAPI</span>
               <span class="tag">PYTHON</span>
               <span class="tag">ASYNCIO</span>
+              <span class="tag">POSTGRESQL</span>
               <span class="tag">VERCEL</span>
               <span class="tag">RAILWAY</span>
             </div>
           </div>
-          </div>
+        </div>
 
-          <div class="chest-wrap" data-chest>
-            <div class="chest-lid"></div>
-            <div class="chest-glint"></div>
-            <div class="quest">
+        <!-- PARQUET DIGITAL -->
+        <div class="chest-wrap" data-chest>
+          <div class="chest-lid"></div>
+          <div class="chest-glint"></div>
+          <div class="quest">
             <div class="quest-top">
               <div class="quest-icon star">★</div>
               <span class="quest-name">PARQUET DIGITAL — MPRJ</span>
@@ -575,12 +502,13 @@
               <span class="tag">CI/CD</span><span class="tag">STORYBOOK</span><span class="tag">OPENSHIFT</span><span class="tag">FIGMA</span>
             </div>
           </div>
-          </div>
+        </div>
 
-          <div class="chest-wrap" data-chest>
-            <div class="chest-lid"></div>
-            <div class="chest-glint"></div>
-            <div class="quest">
+        <!-- FREELANCE -->
+        <div class="chest-wrap" data-chest>
+          <div class="chest-lid"></div>
+          <div class="chest-glint"></div>
+          <div class="quest">
             <div class="quest-top">
               <div class="quest-icon rupee">◆</div>
               <span class="quest-name" data-i18n="freelance_title">FREELANCE</span>
@@ -592,13 +520,12 @@
               <span class="tag">POSTGRESQL</span><span class="tag">NODE.JS</span>
             </div>
           </div>
-          </div>
-
         </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- ── MEANS OF PRODUCTION ── -->
   <section id="skills">
     <div class="container">
       <div class="triforce-divider">
@@ -612,78 +539,44 @@
         <div class="panel">
           <div class="gem-tr"></div><div class="gem-bl"></div>
           <div class="skills-grid">
-
             <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">REACT / REACT NATIVE</span>
-                <div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-              </div>
+              <div class="skill-header"><span class="skill-name">REACT / REACT NATIVE</span><div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-w="0.95"></div></div>
             </div>
-
             <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">TYPESCRIPT / JAVASCRIPT</span>
-                <div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-              </div>
+              <div class="skill-header"><span class="skill-name">TYPESCRIPT / JAVASCRIPT</span><div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-w="0.92"></div></div>
             </div>
-
             <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">DJANGO / PYTHON</span>
-                <div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star dim"></div></div>
-              </div>
+              <div class="skill-header"><span class="skill-name">DJANGO / PYTHON</span><div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star dim"></div></div></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-w="0.82"></div></div>
             </div>
-
             <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">SQL / POSTGRESQL / SQLITE</span>
-                <div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star dim"></div></div>
-              </div>
+              <div class="skill-header"><span class="skill-name">SQL / POSTGRESQL / SQLITE</span><div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star dim"></div></div></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-w="0.85"></div></div>
             </div>
-
             <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">SYSTEM DESIGN</span>
-                <div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-              </div>
+              <div class="skill-header"><span class="skill-name">SYSTEM DESIGN</span><div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-w="0.90"></div></div>
             </div>
-
             <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">NODE.JS / NEXT.JS</span>
-                <div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star dim"></div></div>
-              </div>
+              <div class="skill-header"><span class="skill-name">NODE.JS / NEXT.JS</span><div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star dim"></div></div></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-w="0.78"></div></div>
             </div>
-
             <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">DOCKER / CI/CD / AWS</span>
-                <div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star dim"></div></div>
-              </div>
+              <div class="skill-header"><span class="skill-name">DOCKER / CI/CD / AWS</span><div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star dim"></div></div></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-w="0.75"></div></div>
             </div>
-
             <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name" data-i18n="skill_product">PRODUCT THINKING</span>
-                <div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-              </div>
+              <div class="skill-header"><span class="skill-name" data-i18n="skill_product">PRODUCT THINKING</span><div class="skill-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-w="0.95"></div></div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── CONTACT ── -->
   <section id="contact">
     <div class="container">
       <div class="triforce-divider">
@@ -739,7 +632,6 @@
   </footer>
 
   <script>
-  /* ── I18N ── */
   const S = {
     en: {
       nav_profile:'CHARACTER PROFILE', nav_quests:'QUEST LOG', nav_skills:'MEANS OF PRODUCTION', nav_contact:'SEND MESSAGE',
@@ -749,18 +641,19 @@
       hero_cta:"IT\u2019S DANGEROUS TO GO ALONE \u2014 HIRE ME.", btn_quests:'VIEW QUESTS',
       about_p1:'Senior engineer with 9+ years building products end-to-end \u2014 from architecture to the moment someone actually uses it, and everything in between. I work across the full stack, but my actual job is deciding what matters, then building it.',
       about_p2:'Led <span class="highlight">Parquet Digital</span> to a national innovation award \u2014 <span class="stat-inline">300% users</span> <span class="stat-inline">60% faster</span> <span class="stat-inline">30% less dev time</span>. Now building <span class="highlight">Monopop</span> \u2014 starts as inventory and shopping management, ends somewhere considerably more ambitious.',
-      about_p3:'Six languages. CS at UFF, in progress. Still learning.',
+      about_p3:'Six languages. CS at UFF, incomplete \u2014 four years, teaching assistant for Databases and Advanced Java. Plans to finish.',
       badge_active:'\u25b6 ACTIVE',
-      monopop_desc:'Offline-first Android app for inventory and shopping management \u2014 built from scratch, in production, daily use. The architecture is designed to grow: price history, store comparison, and collective purchasing intelligence are already in the roadmap.',
-      monopop_b1:'<strong>Full product ownership</strong> \u2014 schema design, migration system, UI architecture, UX decisions, and roadmap. Real users, real feedback loop.',
-      monopop_b2:'<strong>Performance engineering</strong> \u2014 cold start 3s \u2192 1s; critical queries 1287ms \u2192 5ms through profiling, indexing, and architectural decisions.',
-      monopop_b3:'<strong>Spec-driven development</strong> \u2014 complex features fully specced before implementation. AI proposes, human decides, human owns the architecture.',
+      monopop_desc:'Offline-first Android app for inventory and shopping management \u2014 built for one specific person who uses it every day at work and at the supermarket. No backend, no account, no internet required. Data belongs to the user by architecture, not by policy. The name comes from <em>monops\u00f4nio popular</em> \u2014 the consumer, collectively, as the dominant buyer. This is the first layer of that idea made functional.',
+      monopop_b1:'<strong>Full product ownership</strong> \u2014 schema design (V1\u2192V10 versioned migrations), UI architecture, UX driven by observed behavior. Real users, real feedback loop, real consequences when things break.',
+      monopop_b2:'<strong>Performance engineering, three separate wins</strong> \u2014 New Architecture/JSI eliminated the JSON bridge (cold start 3s \u2192 1s; ~90% of total gains from this alone); WAL mode + explicit PRAGMAs eliminated lock overhead (repeat-visit load 900ms \u2192 33ms); profiling identified a single query as bottleneck (1287ms \u2192 5ms after indexes in V8 migration).',
+      monopop_b3:'<strong>Source of truth follows observation</strong> \u2014 during v1.7 development, caught a fundamental data model flaw: the app was storing a derived value (price per unit) as canonical. User typed R$14,00 and got R$14,0000000003 back. The rounding error was a symptom; the real fix was epistemics. Corrected before shipping.',
+      monopop_b4:'<strong>Spec-driven AI-assisted development</strong> \u2014 complex features fully specced before implementation. AI proposes, human decides, human reviews every diff, human owns the architecture. Faster iteration without surrendering design ownership.',
       parquet_desc:'Internal platform used by prosecutors across Rio de Janeiro state. SPA awarded <strong>2nd place \u2014 2021 CNMP National Innovation Award</strong>. Led architecture, CI/CD, and a design system that scaled across teams.',
       freelance_title:'FREELANCE', freelance_desc:'Websites and web applications for clients across the years. Full ownership from spec to delivery \u2014 backend, frontend, infrastructure.',
-      intel_desc:'Market price intelligence for Rio de Janeiro supermarkets. Searches Prezunic and Zona Sul simultaneously, sorts by price, paginates results. Closes the loop with Monopop: know your stock, know the market, buy smarter.',
-      intel_b1:'<strong>Parallel async scraping</strong> \u2014 httpx + asyncio fetches multiple stores simultaneously via publicly available VTEX APIs. ~50% latency reduction vs sequential.',
-      intel_b2:'<strong>Next.js 15 Server Components</strong> \u2014 data fetching on the server, browser receives rendered HTML. Zero client-side JS for search logic, zero waterfall.',
-      intel_b3:'<strong>Deterministic multi-store sort</strong> \u2014 tiebreaker (price, product_id, store) ensures stable pagination across independent store results.',
+      intel_desc:'End-to-end market price intelligence for Rio de Janeiro supermarkets: scraper \u2192 normalization \u2192 dual-layer storage \u2192 API \u2192 UI. Tracks 18,000+ product prices daily. Built and shipped in two weeks \u2014 two systems in production during an active financial crunch, both live, both with real users. Closes the loop with Monopop: know your stock, know the market, buy smarter.',
+      intel_b1:'<strong>Per-store concurrency control</strong> \u2014 asyncio.Semaphore scoped per store independently, not globally. A global semaphore lets one slow store (VTEX averages 5\u20136s per call, spikes to 20\u201330s) consume all slots and starve the others. Per-store isolation contains the damage. Result: full scrape cycle 3 hours \u2192 6 minutes (30\u00d7).',
+      intel_b2:'<strong>Dual-layer storage</strong> \u2014 reactive SQLite cache (4h TTL, low-latency search) + PostgreSQL time-series (90-day price history). Two different problems \u2014 search latency and price trend data \u2014 each solved with the right tool. One database wouldn\u2019t handle both correctly.',
+      intel_b3:'<strong>Self-healing retry pipeline</strong> \u2014 GitHub Actions cron writes scrape results to a log table. The hourly retry job queries for failures in the last 24h with no subsequent success and re-enqueues only those (term, store) pairs. No dead-letter queue, no fixed retry counter. Idempotent writes throughout.',
       skill_product:'PRODUCT THINKING',
       contact_loc_label:'\u25c6 LOCATION', contact_loc_val:'Rio de Janeiro, Brazil',
       cta_main:"IT\u2019S DANGEROUS TO GO ALONE \u2014 HIRE ME.", cta_sub:'Available for senior frontend, fullstack, and product-minded roles.',
@@ -774,18 +667,19 @@
       hero_cta:'É PERIGOSO IR SOZINHO \u2014 ME CONTRATE.', btn_quests:'VER MISSÕES',
       about_p1:'Engenheiro sênior com 9+ anos construindo produtos do início ao fim \u2014 da arquitetura ao momento em que alguém realmente usa, e tudo que há no meio. Trabalho em toda a stack, mas meu trabalho real é decidir o que importa e construir.',
       about_p2:'Levei o <span class="highlight">Parquet Digital</span> a um prêmio nacional \u2014 <span class="stat-inline">300% usuários</span> <span class="stat-inline">60% mais rápido</span> <span class="stat-inline">30% menos dev</span>. Agora construindo <span class="highlight">Monopop</span> \u2014 começa como gestão de estoque e compras, termina em algum lugar consideravelmente mais ambicioso.',
-      about_p3:'Seis idiomas. Ciência da Computação na UFF, em curso. Ainda aprendendo.',
+      about_p3:'Seis idiomas. Ciência da Computação na UFF, incompleto \u2014 quatro anos, monitor de Banco de Dados e Java Avançado. Pretende concluir.',
       badge_active:'\u25b6 ATIVO',
-      monopop_desc:'App Android offline-first para gestão de estoque e lista de compras \u2014 construído do zero, em produção, uso diário. Arquitetado para crescer: histórico de preços, comparação entre lojas e inteligência coletiva de compras já no roadmap.',
-      monopop_b1:'<strong>Produto completo sob responsabilidade própria</strong> \u2014 schema, migrações, arquitetura de UI, UX e roadmap. Usuários reais, feedback loop real.',
-      monopop_b2:'<strong>Engenharia de performance</strong> \u2014 cold start de 3s para 1s; queries críticas de 1287ms para 5ms via profiling, índices e decisões arquiteturais.',
-      monopop_b3:'<strong>Desenvolvimento spec-driven</strong> \u2014 IA propõe, humano decide, humano é dono da arquitetura.',
+      monopop_desc:'App Android offline-first para gestão de estoque e lista de compras \u2014 construído para uma pessoa específica que usa todos os dias no trabalho e no supermercado. Sem backend, sem conta, sem internet. Os dados pertencem ao usuário por arquitetura, não por política. O nome vem de <em>monopsônio popular</em> \u2014 o consumidor, coletivamente, como comprador dominante. Esta é a primeira camada dessa ideia em funcionamento.',
+      monopop_b1:'<strong>Produto completo sob responsabilidade própria</strong> \u2014 schema (migrações V1\u2192V10), arquitetura de UI, UX orientado por comportamento observado. Usuários reais, feedback loop real, consequências reais quando algo quebra.',
+      monopop_b2:'<strong>Engenharia de performance, três ganhos separados</strong> \u2014 New Architecture/JSI eliminou o bridge JSON (cold start 3s \u2192 1s; ~90% do ganho total veio disso); WAL mode + PRAGMAs explícitos eliminaram lock overhead (900ms \u2192 33ms em visita repetida); profiling identificou uma query como gargalo (1287ms \u2192 5ms com índices na migração V8).',
+      monopop_b3:'<strong>Source of truth segue a observação</strong> \u2014 durante o v1.7, capturou uma falha fundamental no modelo de dados: o app armazenava um valor derivado (preço por unidade) como canônico. Usuário digitou R$14,00 e recebeu R$14,0000000003. O erro de ponto flutuante era sintoma; a correção real foi epistêmica. Corrigido antes do lançamento.',
+      monopop_b4:'<strong>Desenvolvimento spec-driven com IA</strong> \u2014 funcionalidades complexas especificadas antes da implementação. IA propõe, humano decide, humano revisa cada diff, humano é dono da arquitetura. Iteração mais rápida sem abrir mão da propriedade do design.',
       parquet_desc:'Plataforma interna usada por promotores em todo o Rio. Premiada em <strong>2º lugar \u2014 Prêmio CNMP de Inovação 2021</strong>. Liderou arquitetura, CI/CD e sistema de design.',
       freelance_title:'FREELANCE', freelance_desc:'Sites e aplicações web para clientes. Responsabilidade total do spec à entrega \u2014 backend, frontend, infraestrutura.',
-      intel_desc:'Inteligência de preços de supermercados no Rio de Janeiro. Busca Prezunic e Zona Sul simultaneamente, ordena por preço, pagina resultados. Fecha o loop com o Monopop: sabe o que tem, sabe o que custa, compra melhor.',
-      intel_b1:'<strong>Scraping paralelo e assíncrono</strong> — httpx + asyncio busca múltiplas lojas simultaneamente via APIs públicas VTEX. ~50% de redução de latência vs sequencial.',
-      intel_b2:'<strong>Next.js 15 Server Components</strong> — dados buscados no servidor, browser recebe HTML pronto. Zero JS client-side para lógica de busca, zero waterfall.',
-      intel_b3:'<strong>Sort multi-loja determinístico</strong> — tiebreaker (preço, product_id, loja) garante paginação estável entre resultados de lojas independentes.',
+      intel_desc:'Inteligência de preços end-to-end para supermercados do Rio: scraper \u2192 normalização \u2192 armazenamento dual-layer \u2192 API \u2192 UI. Rastreia 18.000+ preços diariamente. Construído e entregue em duas semanas \u2014 dois sistemas em produção durante um período financeiro crítico, ambos ao vivo, ambos com usuários reais.',
+      intel_b1:'<strong>Controle de concorrência por loja</strong> \u2014 asyncio.Semaphore com escopo por loja, não global. Um semáforo global deixa uma loja lenta (VTEX: média 5\u20136s por chamada, picos de 20\u201330s) consumir todos os slots e travar as outras. Resultado: ciclo completo 3 horas \u2192 6 minutos (30\u00d7).',
+      intel_b2:'<strong>Armazenamento dual-layer</strong> \u2014 cache SQLite reativo (TTL 4h) + time-series PostgreSQL (histórico de 90 dias). Dois problemas diferentes, cada um resolvido com a ferramenta certa.',
+      intel_b3:'<strong>Pipeline de retry auto-curativo</strong> \u2014 cron registra resultados em log; retry horário reenfileira apenas pares (termo, loja) com falha sem sucesso posterior. Writes idempotentes em todo o pipeline.',
       skill_product:'VISÃO DE PRODUTO',
       contact_loc_label:'\u25c6 LOCALIZAÇÃO', contact_loc_val:'Rio de Janeiro, Brasil',
       cta_main:'É PERIGOSO IR SOZINHO \u2014 ME CONTRATE.', cta_sub:'Disponível para vagas sênior de frontend, fullstack e produto.',
@@ -795,18 +689,23 @@
       nav_profile:'PERFIL', nav_quests:'MISIONES', nav_skills:'MEDIOS DE PRODUCCIÓN', nav_contact:'CONTACTO',
       hero_tag:'JUGADOR UNO \u00a0/\u00a0 RÍO DE JANEIRO, BRASIL',
       hero_sub_bold:'Ingeniero de Software', hero_sub_rest:' \u2014 del producto a la producción',
-      hero_tagline:'Construyo productos de principio a fin \u2014 desde el lienzo en blanco hasta el lanzamiento. Arquitectura, código, UX, y el juicio implacable sobre qué vale la pena construir. Nueve años después, los problemas difíciles siguen siendo los interesantes.',
+      hero_tagline:'Construyo productos de principio a fin. Arquitectura, código, UX. Nueve años después, los problemas difíciles siguen siendo los interesantes.',
       hero_cta:'ES PELIGROSO IR SOLO \u2014 CONTRÁTAME.', btn_quests:'VER MISIONES',
-      about_p1:'Ingeniero senior con 9+ años construyendo productos de principio a fin \u2014 de la arquitectura al momento en que alguien lo usa, y todo lo que hay en medio.',
-      about_p2:'Llevé <span class="highlight">Parquet Digital</span> a un premio nacional \u2014 <span class="stat-inline">300% usuarios</span> <span class="stat-inline">60% más rápido</span>. Ahora construyendo <span class="highlight">Monopop</span> \u2014 empieza como gestión de inventario, termina en algo considerablemente más ambicioso.',
-      about_p3:'Seis idiomas. Informática en la UFF, en curso. Siempre aprendiendo.',
+      about_p1:'Ingeniero senior con 9+ años construyendo productos de principio a fin.',
+      about_p2:'Llevé <span class="highlight">Parquet Digital</span> a un premio nacional \u2014 <span class="stat-inline">300% usuarios</span> <span class="stat-inline">60% más rápido</span>. Ahora <span class="highlight">Monopop</span>.',
+      about_p3:'Seis idiomas. Informática en la UFF, incompleto \u2014 cuatro años, asistente de cátedra. Planes de terminar.',
       badge_active:'\u25b6 ACTIVO',
-      monopop_desc:'App Android offline-first para inventario y lista de compras \u2014 construida desde cero, en producción, uso diario.',
-      monopop_b1:'<strong>Producto completo bajo responsabilidad propia</strong> \u2014 schema, migraciones, arquitectura UI, UX y roadmap. Usuarios reales, feedback loop real.',
-      monopop_b2:'<strong>Ingeniería de rendimiento</strong> \u2014 arranque en frío 3s \u2192 1s; queries críticas 1287ms \u2192 5ms.',
-      monopop_b3:'<strong>Desarrollo spec-driven</strong> \u2014 IA propone, humano decide, humano es dueño de la arquitectura.',
-      parquet_desc:'Plataforma para fiscales en Rio de Janeiro. <strong>2° lugar \u2014 Premio CNMP de Innovación 2021</strong>.',
-      freelance_title:'FREELANCE', freelance_desc:'Sitios web y aplicaciones para clientes. Responsabilidad total del spec a la entrega.',
+      monopop_desc:'App Android offline-first para inventario y lista de compras \u2014 construida para una persona específica que la usa todos los días.',
+      monopop_b1:'<strong>Producto completo</strong> \u2014 schema V1\u2192V10, arquitectura UI, UX de comportamiento observado.',
+      monopop_b2:'<strong>Rendimiento, tres victorias</strong> \u2014 JSI: 3s\u21921s; WAL: 900ms\u219233ms; índices: 1287ms\u21925ms.',
+      monopop_b3:'<strong>Source of truth sigue la observación</strong> \u2014 fallo fundamental en modelo de datos capturado en v1.7 y corregido antes del lanzamiento.',
+      monopop_b4:'<strong>Desarrollo spec-driven con IA</strong> \u2014 IA propone, humano decide, humano es dueño.',
+      parquet_desc:'Plataforma para fiscales en Rio. <strong>2° lugar \u2014 Premio CNMP de Innovación 2021</strong>.',
+      freelance_title:'FREELANCE', freelance_desc:'Aplicaciones web para clientes. Responsabilidad total del spec a la entrega.',
+      intel_desc:'Inteligencia de precios end-to-end. 18.000+ precios diarios. Construido en dos semanas.',
+      intel_b1:'<strong>Control por tienda</strong> \u2014 Semaphore por tienda, no global. 3 horas \u2192 6 minutos (30\u00d7).',
+      intel_b2:'<strong>Almacenamiento dual</strong> \u2014 SQLite reactivo + PostgreSQL series temporales.',
+      intel_b3:'<strong>Retry auto-reparador</strong> \u2014 log-driven, solo re-encola fallos reales. Idempotente.',
       skill_product:'PENSAMIENTO DE PRODUCTO',
       contact_loc_label:'\u25c6 UBICACIÓN', contact_loc_val:'Río de Janeiro, Brasil',
       cta_main:'ES PELIGROSO IR SOLO \u2014 CONTRÁTAME.', cta_sub:'Disponible para roles senior de frontend, fullstack y producto.',
@@ -816,42 +715,52 @@
       nav_profile:'PROFILE · プロフィール', nav_quests:'QUEST LOG · クエスト', nav_skills:'MEANS OF PRODUCTION', nav_contact:'CONTACT · 連絡',
       hero_tag:'PLAYER ONE \u00a0/\u00a0 ブラジル · リオデジャネイロ',
       hero_sub_bold:'Software Engineer · エンジニア', hero_sub_rest:' \u2014 プロダクトからプロダクションへ',
-      hero_tagline:'9年以上、エンドツーエンドでプロダクトを構築。Architecture, code, UX \u2014 そして何を作るべきかの判断まで。9年経っても、難しい問題が一番面白い。',
-      hero_cta:"ひとりは危険だ \u2014 IT'S DANGEROUS TO GO ALONE. HIRE ME.", btn_quests:'QUEST LOG',
-      about_p1:'Senior engineer · 9年以上の経験。Full stackで動くが、本当の仕事は何を作るべきか判断し、それを作ること。',
-      about_p2:'<span class="highlight">Parquet Digital</span> \u2014 全国イノベーション賞2位 · <span class="stat-inline">300% users</span> <span class="stat-inline">60% faster</span>. 現在 <span class="highlight">Monopop</span> を開発中 \u2014 ショッピングアプリから始まり、もっと大きな何かへ。',
-      about_p3:'6言語。CS at UFF, in progress. まだ学んでいる。',
+      hero_tagline:'9年以上、エンドツーエンドでプロダクトを構築。9年経っても、難しい問題が一番面白い。',
+      hero_cta:"ひとりは危険だ \u2014 HIRE ME.", btn_quests:'QUEST LOG',
+      about_p1:'Senior engineer · 9年以上。Full stack、本当の仕事は何を作るべきか判断すること。',
+      about_p2:'<span class="highlight">Parquet Digital</span> \u2014 全国賞2位。現在 <span class="highlight">Monopop</span> 開発中。',
+      about_p3:'6言語。CS at UFF, incomplete。4年履修、TA経験あり。卒業予定。',
       badge_active:'\u25b6 進行中',
-      monopop_desc:'オフラインファーストのAndroidアプリ。在庫管理と買い物リスト。本番環境で実際のユーザーが毎日使用中。',
-      monopop_b1:'<strong>フルプロダクトオーナーシップ</strong> \u2014 schema設計、マイグレーション、UI、UX、ロードマップ。実際のユーザー、リアルなフィードバック。',
-      monopop_b2:'<strong>パフォーマンス改善</strong> \u2014 cold start 3s\u21921s; クエリ 1287ms\u21925ms。',
-      monopop_b3:'<strong>Spec-driven開発</strong> \u2014 AIが提案、人間が決定、アーキテクチャのオーナーは人間。',
-      parquet_desc:'リオデジャネイロ州の検察官プラットフォーム。<strong>CNMP Innovation Award 2021 · 2位</strong>。',
-      freelance_title:'FREELANCE · フリーランス', freelance_desc:'複数クライアントのWebアプリ開発。Specからdeliveryまで全責任。',
+      monopop_desc:'オフラインファーストのAndroidアプリ。毎日使う実際のユーザーのために作られた。',
+      monopop_b1:'<strong>フルプロダクトオーナーシップ</strong> \u2014 V1\u2192V10マイグレーション、UI、UX。',
+      monopop_b2:'<strong>パフォーマンス3勝</strong> \u2014 JSI: 3s\u21921s; WAL: 900ms\u219233ms; インデックス: 1287ms\u21925ms。',
+      monopop_b3:'<strong>Source of truthは観察に従う</strong> \u2014 v1.7で根本的欠陥を発見、出荷前に修正。',
+      monopop_b4:'<strong>Spec-driven AI支援開発</strong> \u2014 AIが提案、人間が決定。',
+      parquet_desc:'検察官プラットフォーム。<strong>CNMP Innovation Award 2021 · 2位</strong>。',
+      freelance_title:'FREELANCE · フリーランス', freelance_desc:'Webアプリ開発。Specからdeliveryまで全責任。',
+      intel_desc:'エンドツーエンド価格情報。18,000+価格を毎日追跡。2週間で構築・本番リリース。',
+      intel_b1:'<strong>店舗別並行制御</strong> \u2014 Semaphoreを店舗ごとに独立設定。3時間\u21926分 (30倍)。',
+      intel_b2:'<strong>デュアルレイヤーストレージ</strong> \u2014 SQLiteキャッシュ + PostgreSQL時系列。',
+      intel_b3:'<strong>自己修復リトライ</strong> \u2014 ログ駆動、失敗ペアのみ再投入。べき等。',
       skill_product:'PRODUCT THINKING · プロダクト思考',
       contact_loc_label:'\u25c6 場所', contact_loc_val:'ブラジル · リオデジャネイロ',
-      cta_main:"IT'S DANGEROUS TO GO ALONE \u2014 HIRE ME. ひとりは危険だ。", cta_sub:'Frontend / Fullstack / Product roles available.',
-      footer_year:'2026', footer_note:'NO FRAMEWORKS HARMED · フレームワーク被害なし',
+      cta_main:"IT'S DANGEROUS TO GO ALONE \u2014 HIRE ME.", cta_sub:'Frontend / Fullstack / Product.',
+      footer_year:'2026', footer_note:'NO FRAMEWORKS HARMED',
     },
     de: {
       nav_profile:'PROFIL', nav_quests:'AUFGABEN', nav_skills:'PRODUKTIONSMITTEL', nav_contact:'KONTAKT',
       hero_tag:'SPIELER EINS \u00a0/\u00a0 RIO DE JANEIRO, BRASILIEN',
       hero_sub_bold:'Software-Ingenieur', hero_sub_rest:' \u2014 vom Produkt zur Produktion',
-      hero_tagline:'Ich baue Produkte von Anfang bis Ende \u2014 vom leeren Canvas bis zum Launch. Architektur, Code, UX, und das unerbittliche Urteil über das, was es wert ist gebaut zu werden. Neun Jahre später sind die schwierigen Probleme immer noch die interessanten.',
+      hero_tagline:'Produkte von Anfang bis Ende. Architektur, Code, UX. Neun Jahre später sind die schwierigen Probleme immer noch die interessanten.',
       hero_cta:'ES IST GEFÄHRLICH ALLEIN ZU GEHEN \u2014 STELLE MICH EIN.', btn_quests:'AUFGABEN',
-      about_p1:'Senior-Ingenieur mit 9+ Jahren Erfahrung im Aufbau von End-to-End-Produkten \u2014 von der Architektur bis zum Moment, wo jemand es wirklich nutzt. Mein eigentlicher Job ist zu entscheiden, was wichtig ist, und es dann zu bauen.',
-      about_p2:'<span class="highlight">Parquet Digital</span> zum nationalen Innovationspreis geführt \u2014 <span class="stat-inline">300% Nutzer</span> <span class="stat-inline">60% schneller</span>. Jetzt <span class="highlight">Monopop</span> \u2014 beginnt als Inventarverwaltung, endet erheblich ambitionierter.',
-      about_p3:'Sechs Sprachen. Informatik an der UFF, in Bearbeitung. Noch am Lernen.',
+      about_p1:'Senior-Ingenieur mit 9+ Jahren End-to-End-Erfahrung.',
+      about_p2:'<span class="highlight">Parquet Digital</span> \u2014 nationaler Innovationspreis. Jetzt <span class="highlight">Monopop</span>.',
+      about_p3:'Sechs Sprachen. Informatik an der UFF, unvollständig \u2014 vier Jahre, Tutor. Plant abzuschließen.',
       badge_active:'\u25b6 AKTIV',
-      monopop_desc:'Offline-first Android-App für Inventar und Einkaufslisten \u2014 von Grund auf gebaut, in Produktion, tägliche Nutzung.',
-      monopop_b1:'<strong>Vollständiges Produkteigentum</strong> \u2014 Schema, Migrationssystem, UI-Architektur, UX-Entscheidungen. Echte Nutzer, echter Feedback-Loop.',
-      monopop_b2:'<strong>Performance-Engineering</strong> \u2014 Kaltstart 3s \u2192 1s; kritische Abfragen 1287ms \u2192 5ms.',
-      monopop_b3:'<strong>Spec-gesteuerte Entwicklung</strong> \u2014 KI schlägt vor, Mensch entscheidet, Mensch besitzt die Architektur.',
-      parquet_desc:'Interne Plattform für Staatsanwälte in Rio de Janeiro. <strong>2. Platz \u2014 CNMP-Innovationspreis 2021</strong>.',
-      freelance_title:'FREIBERUFLICH', freelance_desc:'Websites und Webanwendungen für Kunden. Vollverantwortung vom Spec bis zur Lieferung.',
+      monopop_desc:'Offline-first Android-App für Inventar und Einkaufslisten \u2014 für tägliche Nutzung gebaut.',
+      monopop_b1:'<strong>Vollständiges Produkteigentum</strong> \u2014 Schema V1\u2192V10, UI, UX.',
+      monopop_b2:'<strong>Performance, drei Gewinne</strong> \u2014 JSI: 3s\u21921s; WAL: 900ms\u219233ms; Index: 1287ms\u21925ms.',
+      monopop_b3:'<strong>Source of truth folgt Beobachtung</strong> \u2014 fundamentaler Datenmodelifehler in v1.7 gefunden und vor Launch behoben.',
+      monopop_b4:'<strong>Spec-gesteuerter KI-Workflow</strong> \u2014 KI schlägt vor, Mensch entscheidet.',
+      parquet_desc:'Plattform für Staatsanwälte. <strong>2. Platz \u2014 CNMP-Innovationspreis 2021</strong>.',
+      freelance_title:'FREIBERUFLICH', freelance_desc:'Webanwendungen für Kunden. Vollverantwortung.',
+      intel_desc:'End-to-end Preisanalyse. 18.000+ Preise täglich. In zwei Wochen gebaut.',
+      intel_b1:'<strong>Speicherspezifische Parallelität</strong> \u2014 Semaphore pro Geschäft. 3 Stunden \u2192 6 Minuten (30\u00d7).',
+      intel_b2:'<strong>Dual-Layer-Speicher</strong> \u2014 SQLite-Cache + PostgreSQL-Zeitreihen.',
+      intel_b3:'<strong>Selbstheilender Retry</strong> \u2014 Log-gesteuert, nur fehlgeschlagene Paare. Idempotent.',
       skill_product:'PRODUKTDENKEN',
       contact_loc_label:'\u25c6 STANDORT', contact_loc_val:'Rio de Janeiro, Brasilien',
-      cta_main:'ES IST GEFÄHRLICH ALLEIN ZU GEHEN \u2014 STELLE MICH EIN.', cta_sub:'Verfügbar für Senior-Frontend-, Fullstack- und produktbasierte Rollen.',
+      cta_main:'ES IST GEFÄHRLICH ALLEIN ZU GEHEN \u2014 STELLE MICH EIN.', cta_sub:'Senior Frontend, Fullstack, Product.',
       footer_year:'2026', footer_note:'KEIN FRAMEWORK WURDE VERLETZT',
     },
   };
@@ -866,16 +775,13 @@
   }
   document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
 
-  /* ── CHEST: scroll-driven, starts at 42% visible ── */
   const chests = document.querySelectorAll('[data-chest]');
-
   function updateChests() {
     const vh = window.innerHeight;
     chests.forEach(wrap => {
       const lid   = wrap.querySelector('.chest-lid');
       const glint = wrap.querySelector('.chest-glint');
       const r     = wrap.getBoundingClientRect();
-      // starts when 210px visible, ends when top at 42% down viewport
       const start = vh - 210;
       const end   = vh * 0.42;
       const ratio = Math.min(1, Math.max(0, (start - r.top) / (start - end)));
@@ -883,24 +789,19 @@
       glint.style.opacity  = ratio > 0.85 ? String((ratio - 0.85) / 0.15) : '0';
     });
   }
-
   window.addEventListener('scroll', updateChests, { passive: true });
   updateChests();
-
-  /* ── SKILL BARS: double rAF to guarantee paint before transition ── */
-  const fills = document.querySelectorAll('.skill-bar-fill');
 
   const barObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const el = entry.target;
       if (entry.isIntersecting) {
-        // ensure scaleX(0) is painted, then animate
         el.style.transition = 'none';
         el.style.transform = 'scaleX(0)';
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             el.style.transition = 'transform 1.1s cubic-bezier(0.4, 0, 0.2, 1)';
-                       el.style.transform = `scaleX(${parseFloat(el.dataset.w) || 0.8})`;
+            el.style.transform = `scaleX(${parseFloat(el.dataset.w) || 0.8})`;
           });
         });
       } else {
@@ -910,7 +811,7 @@
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('.skill-bar-fill').forEach(f => barObs.observe(f));
-  /* email built at runtime to avoid Cloudflare interception */
+
   (function() {
     const u = 'marlonj.cristo', d = 'gmail.com', m = 'mailto:' + u + '@' + d;
     const el = document.getElementById('email-link');
@@ -918,7 +819,6 @@
     if (el)  { el.href = m; el.textContent = u + '@' + d; }
     if (cta) { cta.href = m; }
   })();
-
   </script>
 </body>
 </html>
