@@ -12,7 +12,7 @@ const I18N = {
     hero_tag:      'PLAYER ONE \u00a0/\u00a0 RIO DE JANEIRO, BRAZIL',
     hero_sub_bold: 'Software Engineer',
     hero_sub_rest: ' \u2014 from product to production',
-    hero_tagline:  'I build things end-to-end \u2014 from blank canvas to shipped product. Full-cycle: architecture, code, UX, and the ruthless judgement of what\u2019s worth building at all. Nine years in, the hard problems are still the interesting ones.',
+    hero_tagline:  'I build things end-to-end \u2014 from blank canvas to shipped product. Full-cycle: architecture, code, UX, and the ruthless judgement of what\u2019s worth building at all. After all this time, the hard problems are still the interesting ones.',
     hero_cta:      'IT\u2019S DANGEROUS TO GO ALONE \u2014 HIRE ME.',
     btn_quests:    'VIEW QUESTS',
 
@@ -28,14 +28,15 @@ const I18N = {
     monopop_b3:   '<strong>Source of truth follows observation</strong> \u2014 during v1.7 development, caught a fundamental data model flaw: the app was storing a derived value (price per unit) as canonical. User typed R$14,00 and got R$14,0000000003 back. The rounding error was a symptom; the real fix was epistemics. Corrected before shipping.',
     monopop_b4:   '<strong>Spec-driven AI-assisted development</strong> \u2014 complex features fully specced before implementation. AI proposes, human decides, human reviews every diff, human owns the architecture. Faster iteration without surrendering design ownership.',
 
-    intel_desc: 'End-to-end market price intelligence for Rio de Janeiro supermarkets: scraper \u2192 normalization \u2192 dual-layer storage \u2192 API \u2192 UI. Tracks 18,000+ product prices daily. Built and shipped in two weeks \u2014 two systems in production during an active financial crunch, both live, both with real users. Closes the loop with Monopop: know your stock, know the market, buy smarter.',
+    intel_desc: 'End-to-end market price intelligence for Rio de Janeiro supermarkets \u2014 scraper \u2192 normalization \u2192 dual-layer storage \u2192 API \u2192 full product layer. Tracks 18,000+ prices daily. Built in two weeks during a financial crunch, then kept growing: generics, cross-store comparison, shopping lists, fuzzy paste import, Monopop export. The loop is closed \u2014 know your stock, know the market, build your list, buy smarter.',
     intel_b1:   '<strong>Per-store concurrency control</strong> \u2014 asyncio.Semaphore scoped per store independently, not globally. A global semaphore lets one slow store (VTEX averages 5\u20136s per call, spikes to 20\u201330s) consume all slots and starve the others. Per-store isolation contains the damage. Result: full scrape cycle 3 hours \u2192 6 minutes (30\u00d7).',
-    intel_b2:   '<strong>Dual-layer storage</strong> \u2014 reactive SQLite cache (4h TTL, low-latency search) + PostgreSQL time-series (90-day price history). Two different problems \u2014 search latency and price trend data \u2014 each solved with the right tool. One database wouldn\u2019t handle both correctly.',
-    intel_b3:   '<strong>Self-healing retry pipeline</strong> \u2014 GitHub Actions cron writes scrape results to a log table. The hourly retry job queries for failures in the last 24h with no subsequent success and re-enqueues only those (term, store) pairs. No dead-letter queue, no fixed retry counter. Idempotent writes throughout.',
+    intel_b2:   '<strong>Dual-layer storage</strong> \u2014 reactive SQLite cache (4h TTL, low-latency search) + PostgreSQL time-series (90-day price history). Two different problems \u2014 search latency and trend data \u2014 each solved with the right tool. One database wouldn\u2019t handle both correctly.',
+    intel_b3:   '<strong>Full product layer built on the data pipeline</strong> \u2014 normalized generic pages group cross-store variants by brand and package size with price-per-unit comparison. Shopping lists support paste-driven fuzzy import (bigram + Levenshtein scoring with a mid-confidence review step before committing), variant price pinning, and one-click export as Monopop-compatible JSON. Search is stateless SSR; lists are client-side \u2014 two different statefulness requirements handled separately rather than forcing a single model.',
+    intel_b4:   '<strong>Self-healing retry pipeline</strong> \u2014 GitHub Actions cron logs every scrape result to a table. The hourly retry job queries for failures in the last 24h with no later success and re-enqueues only those (term, store) pairs. No dead-letter queue, no fixed retry counter. Idempotent writes throughout.',
 
     parquet_desc:   'Internal platform used by prosecutors across Rio de Janeiro state. SPA awarded <strong>2nd place \u2014 2021 CNMP National Innovation Award</strong>. Led architecture, CI/CD, and a design system that scaled across teams.',
     freelance_title: 'FREELANCE',
-    freelance_desc:  'Websites and web applications for clients across the years. Full ownership from spec to delivery \u2014 backend, frontend, infrastructure.',
+    freelance_desc:  'Client work running in parallel with institutional employment since 2016 \u2014 landing pages, internal tools, web applications. Full ownership at the sharp end: reading what the client actually needs, writing the spec they couldn\u2019t, delivering it, and making sure the thing still works six months later.',
 
     skill_product: 'PRODUCT THINKING',
 
@@ -57,7 +58,7 @@ const I18N = {
     hero_tag:      'JOGADOR UM \u00a0/\u00a0 RIO DE JANEIRO, BRASIL',
     hero_sub_bold: 'Engenheiro de Software',
     hero_sub_rest: ' \u2014 do produto \u00e0 produ\u00e7\u00e3o',
-    hero_tagline:  'Constru\u00f3 produtos do in\u00edcio ao fim \u2014 do zero ao lan\u00e7amento. Ciclo completo: arquitetura, c\u00f3digo, UX, e o julgamento impiedoso do que vale a pena construir. Nove anos depois, os problemas dif\u00edceis ainda s\u00e3o os mais interessantes.',
+    hero_tagline:  'Constru\u00f3 produtos do in\u00edcio ao fim \u2014 do zero ao lan\u00e7amento. Ciclo completo: arquitetura, c\u00f3digo, UX, e o julgamento impiedoso do que vale a pena construir. Depois de todo esse tempo, os problemas dif\u00edceis ainda s\u00e3o os mais interessantes.',
     hero_cta:      '\u00c9 PERIGOSO IR SOZINHO \u2014 ME CONTRATE.',
     btn_quests:    'VER MISS\u00d5ES',
 
@@ -73,14 +74,15 @@ const I18N = {
     monopop_b3:   '<strong>Source of truth segue a observa\u00e7\u00e3o</strong> \u2014 durante o v1.7, capturou uma falha fundamental no modelo de dados: o app armazenava um valor derivado (pre\u00e7o por unidade) como can\u00f4nico. Usu\u00e1rio digitou R$14,00 e recebeu R$14,0000000003. O erro de ponto flutuante era sintoma; a corre\u00e7\u00e3o real foi epist\u00eamica. Corrigido antes do lan\u00e7amento.',
     monopop_b4:   '<strong>Desenvolvimento spec-driven com IA</strong> \u2014 funcionalidades complexas especificadas antes da implementa\u00e7\u00e3o. IA prop\u00f5e, humano decide, humano revisa cada diff, humano \u00e9 dono da arquitetura. Itera\u00e7\u00e3o mais r\u00e1pida sem abrir m\u00e3o da propriedade do design.',
 
-    intel_desc: 'Intelig\u00eancia de pre\u00e7os end-to-end para supermercados do Rio: scraper \u2192 normaliza\u00e7\u00e3o \u2192 armazenamento dual-layer \u2192 API \u2192 UI. Rastreia 18.000+ pre\u00e7os diariamente. Constru\u00eddo e entregue em duas semanas \u2014 dois sistemas em produ\u00e7\u00e3o durante um per\u00edodo financeiro cr\u00edtico, ambos ao vivo, ambos com usu\u00e1rios reais.',
+    intel_desc: 'Intelig\u00eancia de pre\u00e7os end-to-end para supermercados do Rio \u2014 scraper \u2192 normaliza\u00e7\u00e3o \u2192 armazenamento dual-layer \u2192 API \u2192 camada de produto completa. Rastreia 18.000+ pre\u00e7os diariamente. Constru\u00eddo em duas semanas durante uma crise financeira e continuou crescendo: gen\u00e9ricos, compara\u00e7\u00e3o entre lojas, listas de compras, import fuzzy por paste, export para Monopop. O loop foi fechado \u2014 sabe o que tem, sabe o que o mercado cobra, monta a lista, compra melhor.',
     intel_b1:   '<strong>Controle de concorr\u00eancia por loja</strong> \u2014 asyncio.Semaphore com escopo por loja, n\u00e3o global. Um sem\u00e1foro global deixa uma loja lenta (VTEX: m\u00e9dia 5\u20136s por chamada, picos de 20\u201330s) consumir todos os slots e travar as outras. Resultado: ciclo completo 3 horas \u2192 6 minutos (30\u00d7).',
     intel_b2:   '<strong>Armazenamento dual-layer</strong> \u2014 cache SQLite reativo (TTL 4h) + time-series PostgreSQL (hist\u00f3rico de 90 dias). Dois problemas diferentes, cada um resolvido com a ferramenta certa.',
-    intel_b3:   '<strong>Pipeline de retry auto-curativo</strong> \u2014 cron registra resultados em log; retry hor\u00e1rio reenfileira apenas pares (termo, loja) com falha sem sucesso posterior. Writes idempotentes em todo o pipeline.',
+    intel_b3:   '<strong>Camada de produto construida sobre o pipeline de dados</strong> \u2014 p\u00e1ginas gen\u00e9ricas normalizam variantes entre lojas por marca e tamanho de embalagem, com compara\u00e7\u00e3o por pre\u00e7o/unidade. Listas de compras suportam import fuzzy por paste (bigram + Levenshtein com etapa de revis\u00e3o para correspond\u00eancias de m\u00e9dia confian\u00e7a), pin de pre\u00e7o por variante, e export como JSON compat\u00edvel com Monopop. Busca \u00e9 SSR stateless; listas s\u00e3o client-side \u2014 dois requisitos de estado diferentes tratados separadamente.',
+    intel_b4:   '<strong>Pipeline de retry auto-curativo</strong> \u2014 cron registra cada resultado em log; retry hor\u00e1rio reenfileira apenas pares (termo, loja) com falha sem sucesso posterior. Sem fila de dead-letter, sem contador fixo. Writes idempotentes em todo o pipeline.',
 
     parquet_desc:    'Plataforma interna usada por promotores em todo o Rio. Premiada em <strong>2\u00ba lugar \u2014 Pr\u00eamio CNMP de Inova\u00e7\u00e3o 2021</strong>. Liderou arquitetura, CI/CD e sistema de design.',
     freelance_title: 'FREELANCE',
-    freelance_desc:  'Sites e aplica\u00e7\u00f5es web para clientes. Responsabilidade total do spec \u00e0 entrega \u2014 backend, frontend, infraestrutura.',
+    freelance_desc:  'Trabalho para clientes em paralelo com v\u00ednculos institucionais desde 2016 \u2014 landing pages, ferramentas internas, aplica\u00e7\u00f5es web. Ownership completo no ponto mais dif\u00edcil: entender o que o cliente realmente precisa, escrever o spec que ele n\u00e3o conseguia, entregar, e garantir que ainda funciona seis meses depois.',
 
     skill_product: 'VIS\u00c3O DE PRODUTO',
 

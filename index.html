@@ -99,7 +99,7 @@
         <p class="hero-tagline" data-i18n="hero_tagline">
           I build things end-to-end — from blank canvas to shipped product.
           Full-cycle: architecture, code, UX, and the ruthless judgement of what's worth building at all.
-          Nine years in, the hard problems are still the interesting ones.
+          After all this time, the hard problems are still the interesting ones.
         </p>
         <div class="hero-cta-wrap">
           <a href="#contact" class="danger-cta" data-i18n="hero_cta">IT'S DANGEROUS TO GO ALONE — HIRE ME.</a>
@@ -203,11 +203,12 @@
               <a href="https://github.com/majard/monopop-intel" target="_blank" class="quest-link">◆ SOURCE</a>
               <a href="https://monopop-intel.vercel.app" target="_blank" class="quest-link">◆ DEMO</a>
             </div>
-            <p class="quest-desc" data-i18n="intel_desc">End-to-end market price intelligence for Rio de Janeiro supermarkets: scraper → normalization → dual-layer storage → API → UI. Tracks 18,000+ product prices daily. Built and shipped in two weeks — two systems in production during an active financial crunch, both live, both with real users. Closes the loop with Monopop: know your stock, know the market, buy smarter.</p>
+            <p class="quest-desc" data-i18n="intel_desc">End-to-end market price intelligence for Rio de Janeiro supermarkets — scraper → normalization → dual-layer storage → API → full product layer. Tracks 18,000+ prices daily. Built in two weeks during a financial crunch, then kept growing: generics, cross-store comparison, shopping lists, fuzzy paste import, Monopop export. The loop is closed — know your stock, know the market, build your list, buy smarter.</p>
             <ul class="rupee-bullets">
               <li data-i18n="intel_b1"><strong>Per-store concurrency control</strong> — asyncio.Semaphore scoped per store independently, not globally. A global semaphore lets one slow store (VTEX averages 5–6s per call, spikes to 20–30s) consume all slots and starve the others. Per-store isolation contains the damage. Result: full scrape cycle 3 hours → 6 minutes (30×).</li>
-              <li data-i18n="intel_b2"><strong>Dual-layer storage</strong> — reactive SQLite cache (4h TTL, low-latency search) + PostgreSQL time-series (90-day price history). Two different problems — search latency and price trend data — each solved with the right tool. One database wouldn't handle both correctly.</li>
-              <li data-i18n="intel_b3"><strong>Self-healing retry pipeline</strong> — GitHub Actions cron writes scrape results to a log table. The hourly retry job queries for failures in the last 24h with no subsequent success and re-enqueues only those (term, store) pairs. No dead-letter queue, no fixed retry counter. Idempotent writes throughout.</li>
+              <li data-i18n="intel_b2"><strong>Dual-layer storage</strong> — reactive SQLite cache (4h TTL, low-latency search) + PostgreSQL time-series (90-day price history). Two different problems — search latency and trend data — each solved with the right tool. One database wouldn't handle both correctly.</li>
+              <li data-i18n="intel_b3"><strong>Full product layer built on the data pipeline</strong> — normalized generic pages group cross-store variants by brand and package size with price-per-unit comparison. Shopping lists support paste-driven fuzzy import (bigram + Levenshtein scoring with a mid-confidence review step before committing), variant price pinning, and one-click export as Monopop-compatible JSON. Search is stateless SSR; lists are client-side — two different statefulness requirements handled separately rather than forcing a single model.</li>
+              <li data-i18n="intel_b4"><strong>Self-healing retry pipeline</strong> — GitHub Actions cron logs every scrape result to a table. The hourly retry job queries for failures in the last 24h with no later success and re-enqueues only those (term, store) pairs. No dead-letter queue, no fixed retry counter. Idempotent writes throughout.</li>
             </ul>
             <div class="quest-stats">
               <span class="quest-stat">3 STORES LIVE</span>
@@ -261,7 +262,7 @@
               <span class="quest-name" data-i18n="freelance_title">FREELANCE</span>
               <span class="quest-badge badge-shipped">SINCE 2016</span>
             </div>
-            <p class="quest-desc" data-i18n="freelance_desc">Websites and web applications for clients across the years. Full ownership from spec to delivery — backend, frontend, infrastructure.</p>
+            <p class="quest-desc" data-i18n="freelance_desc">Client work running in parallel with institutional employment since 2016 — landing pages, internal tools, web applications. Full ownership at the sharp end: reading what the client actually needs, writing the spec they couldn't, delivering it, and making sure the thing still works six months later.</p>
             <div class="quest-tags">
               <span class="tag">REACT</span><span class="tag">NEXT.JS</span><span class="tag">DJANGO</span>
               <span class="tag">POSTGRESQL</span><span class="tag">NODE.JS</span>
